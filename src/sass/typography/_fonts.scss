@@ -1,0 +1,34 @@
+$font-base: "Lato";
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro"),
+    url(../../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf)
+      format("truetype");
+}
+
+@font-face {
+  font-family: "Source Sans Pro Bold";
+  src: local("Source Sans Pro"),
+    url(../../fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Source Sans Pro Light";
+  src: local("Source Sans Pro"),
+    url(../../fonts/Source_Sans_Pro/SourceSansPro-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "PlayFair";
+  src: local("PlayFair"),
+    url(../../fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf)
+      format("truetype");
+}
+
+@font-face {
+  font-family: "PlayFair bold";
+  src: local("PlayFair"),
+    url(../../fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf)
+      format("truetype");
+}
