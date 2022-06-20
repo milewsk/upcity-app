@@ -1,7 +1,10 @@
 import { configureStore, applyMiddleware } from "@reduxjs/toolkit";
-import thunk from "redux-thunk";
+import UserSlice from "./userSilce";
+
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    userReducer: UserSlice,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
