@@ -1,7 +1,8 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import "../src/sass/App.scss";
 import Welcome from "./components/home/Welcome";
+import Login from "./components/user/Login";
+import Register from "./components/user/Register";
 
 function App() {
   const isUserLogged = false;
@@ -10,8 +11,8 @@ function App() {
     <Routes>
       {!isUserLogged && (
         <Route path="/">
-          <Route path="login"></Route>
-          <Route path="login"></Route>
+          <Route path="login" element={<Login></Login>}></Route>
+          <Route path="register" element={<Register></Register>}></Route>
           <Route index element={<Welcome></Welcome>}></Route>
           <Route path="*" element={<Navigate to="/"></Navigate>}></Route>
         </Route>
