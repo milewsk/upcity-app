@@ -31,8 +31,9 @@
     height: 2.5rem;
     width: 2.5rem;
     margin: 0 0.5rem 0 0;
-    background-color: transparent;
-    border: 1px solid white;
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 3px;
   }
 
   //on mouseover make checkmark backgorund darker
