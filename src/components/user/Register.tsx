@@ -1,13 +1,15 @@
 import React, { Fragment, useEffect } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/storeHooks";
 
 const Register = (): JSX.Element => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const submitHandler = async (
     event: React.SyntheticEvent<HTMLFormElement>
   ) => {
+    navigate("name", { replace: true });
     event.preventDefault();
 
     const form = event.currentTarget;

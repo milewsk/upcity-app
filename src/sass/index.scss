@@ -1,10 +1,13 @@
 //base
 @use "./base/colors";
+@use "./base/fonts";
+@use "./base/main";
 
 //components
 @use "./components/button/button";
 @use "./components/button/checkbox";
 @use "./components/account/register/register";
+@use "./components/account/register/registerTemp";
 @use "./components/account/login";
 
 *,

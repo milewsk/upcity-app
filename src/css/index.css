@@ -1,4 +1,16 @@
 @font-face {
+  font-family: "Lato Regular";
+  src: local("Lato-Regular"), url(../../fonts/Lato/Lato-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Lato Bold";
+  src: local("Lato-Regular"), url(../../fonts/Lato/Lato-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Lato Italic";
+  src: local("Lato-Regular"), url(../../fonts/Lato/Lato-Italic.ttf) format("truetype");
+}
+@font-face {
   font-family: "Source Sans Pro";
   src: local("Source Sans Pro"), url(../../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf) format("truetype");
 }
@@ -324,6 +336,32 @@
     padding: 0.2em 0;
   }
 }
+.register-template {
+  width: 100%;
+  height: 100vh;
+  padding: 5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-family: "Lato Bold";
+  color: rgba(0, 0, 0, 0.7);
+  background-color: #f0eeee;
+  transition: all 0.3s linear;
+}
+.register-template h1 {
+  font-family: inherit;
+  font-size: 3.2rem;
+  font-weight: 700;
+  padding: 2rem 0;
+}
+.register-template p {
+  font-size: 2.5rem;
+}
+.register-template p b {
+  color: #ac2626;
+}
+
 .login-page {
   width: 100%;
   height: 100vh;
