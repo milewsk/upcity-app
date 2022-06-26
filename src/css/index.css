@@ -94,6 +94,57 @@
   }
 }
 
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0.6rem 0.7rem;
+  margin: 0.3rem 0 0.5rem 0;
+  cursor: pointer;
+  font-size: 1.8rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkbox-container .checkmark {
+  position: relative;
+  height: 2.5rem;
+  width: 2.5rem;
+  margin: 0 0.5rem 0 0;
+  background-color: transparent;
+  border: 1px solid white;
+}
+.checkbox-container:hover input ~ .checkmark {
+  background-color: white;
+}
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #ac2626;
+}
+.checkbox-container input:checked ~ .checkmark::after {
+  display: block;
+}
+.checkbox-container .checkmark::after {
+  content: "";
+  position: absolute;
+  left: 40%;
+  top: 15%;
+  width: 7px;
+  height: 14px;
+  border: solid white;
+  border-width: 0 2.5px 2.5px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 .register-page {
   width: 100%;
   height: 100vh;
@@ -231,6 +282,156 @@
     align-self: center;
   }
   .register-page p {
+    font-size: 2rem;
+    margin: 0.3rem 0;
+    padding: 0.6rem 0;
+  }
+}
+.login-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0eeee;
+  transition: all 0.3s linear;
+}
+.login-page__intro {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+.login-page__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  margin: 1rem 0;
+  padding: 1rem 2rem 0 2rem;
+  font-size: 2.2rem;
+  font-family: "Source Sans Pro";
+  font-weight: 500;
+  border-top: 1px solid rgba(85, 85, 85, 0.5);
+}
+.login-page__logo-box {
+  font-size: 7rem;
+  font-family: "DisplayPro";
+  font-weight: 600;
+  color: #ac2626;
+  padding: 1rem 0;
+}
+.login-page__slogan {
+  font-size: 2rem;
+  font-weight: 400;
+  font-family: "Source Sans Pro";
+}
+.login-page__title {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0rem;
+  color: #ac2626;
+}
+.login-page label {
+  padding: 0.3rem 0.7rem;
+}
+.login-page input {
+  font-size: 2.2rem;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 0.7rem;
+  margin: 0.3rem 0 0.5rem 0;
+}
+.login-page input:active {
+  border: none;
+}
+.login-page button {
+  margin: 1rem 0;
+  align-self: center;
+}
+.login-page p {
+  font-size: 2rem;
+  margin: 0.2rem 0;
+  padding: 0.5rem 0;
+  width: 100%;
+  text-align: center;
+}
+.login-page__remember-box {
+  padding: 0.6rem 0.7rem;
+  margin: 0.3rem 0 0.5rem 0;
+  font-size: 1.7rem;
+}
+.login-page__remember-box input {
+  color: red;
+}
+.login-page__forgot-password {
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  text-decoration: underline black 0.1rem;
+  transition: 0.4s all ease-in;
+}
+.login-page__redirect a {
+  color: #ac2626;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.4s linear;
+}
+.login-page__redirect a:hover, .login-page__redirect a:active {
+  transform: translateY(0.5rem);
+}
+
+@media screen and (min-width: 1024px) {
+  .login-page {
+    flex-direction: row;
+  }
+  .login-page__intro {
+    width: 40%;
+    padding: 0 4rem;
+  }
+  .login-page__form {
+    width: 40%;
+    padding: 0 4rem;
+    border: none;
+    border-left: 1px solid rgba(85, 85, 85, 0.5);
+  }
+  .login-page__logo-box {
+    font-size: 10rem;
+    padding: 1rem 0;
+  }
+  .login-page__slogan {
+    font-size: 3rem;
+    font-weight: 400;
+    font-family: "Source Sans Pro";
+  }
+  .login-page__title {
+    width: 100%;
+    font-size: 5rem;
+    font-weight: 700;
+  }
+  .login-page label {
+    font-size: 2.4rem;
+    padding: 0.3rem 0.7rem;
+  }
+  .login-page input {
+    font-size: 2.4rem;
+    border: none;
+    border-radius: 6px;
+    padding: 0.8rem 0.9rem;
+    margin: 0.5rem 0 0.7rem 0;
+  }
+  .login-page input:active {
+    border: none;
+  }
+  .login-page button {
+    margin: 1.3rem 0;
+    align-self: center;
+  }
+  .login-page p {
     font-size: 2rem;
     margin: 0.3rem 0;
     padding: 0.6rem 0;

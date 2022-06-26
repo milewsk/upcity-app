@@ -1,6 +1,11 @@
-@use "./components/button/button";
+//base
 @use "./base/colors";
-@use "./components/register/register";
+
+//components
+@use "./components/button/button";
+@use "./components/button/checkbox";
+@use "./components/account/register/register";
+@use "./components/account/login";
 
 *,
 *::after,
