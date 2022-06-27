@@ -3,6 +3,10 @@
   src: local("Lato-Regular"), url(../../fonts/Lato/Lato-Regular.ttf) format("truetype");
 }
 @font-face {
+  font-family: "Lato Light";
+  src: local("Lato-Regular"), url(../../fonts/Lato/Lato-Light.ttf) format("truetype");
+}
+@font-face {
   font-family: "Lato Bold";
   src: local("Lato-Regular"), url(../../fonts/Lato/Lato-Bold.ttf) format("truetype");
 }
@@ -60,34 +64,34 @@
 .btn--small {
   width: 15rem;
   padding: 0.6rem 0rem;
-  border-radius: 4px;
+  border-radius: 10px;
   font-weight: 700;
 }
 .btn__desktop--medium {
   width: 20rem;
   padding: 0.8rem 0.6rem;
-  border-radius: 4px;
+  border-radius: 10px;
   font-weight: 700;
   font-size: 2rem;
 }
 .btn__desktop--big {
   width: 30rem;
   padding: 4rem 2rem;
-  border-radius: 4px;
+  border-radius: 10px;
   font-weight: 700;
   font-size: 3rem;
 }
 .btn--medium {
   width: 80%;
   padding: 1.4rem 0rem;
-  border-radius: 4px;
+  border-radius: 10px;
   font-weight: 700;
   font-size: 2rem;
 }
 .btn--big {
   width: 30rem;
   padding: 1.6rem 1rem;
-  border-radius: 4px;
+  border-radius: 10px;
   font-weight: 700;
   font-size: 3.5rem;
 }
@@ -100,7 +104,7 @@
   .btn--big {
     width: 40rem;
     padding: 3rem 2rem;
-    border-radius: 4px;
+    border-radius: 10px;
     font-weight: 700;
     font-size: 4rem;
   }
@@ -212,15 +216,15 @@
 }
 .register-page input {
   font-size: 2.2rem;
-  border: 2px solid transparent;
-  border-radius: 6px;
-  padding: 0.6rem 0.7rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 0.9rem 0.7rem;
   margin: 0.3rem 0 0.5rem 0;
   transition: all 0.3s;
 }
 .register-page input:hover, .register-page input:focus {
   outline: none;
-  border: 2px solid #ac2626;
+  border: 1px solid #ac2626;
   box-shadow: 0 0 4px rgba(85, 85, 85, 0.5);
 }
 .register-page button {
@@ -339,7 +343,7 @@
 .register-template {
   width: 100%;
   height: 100vh;
-  padding: 5rem 3rem;
+  padding: 4rem 3rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -351,17 +355,236 @@
 }
 .register-template h1 {
   font-family: inherit;
-  font-size: 3.2rem;
+  font-size: 3rem;
   font-weight: 700;
   padding: 2rem 0;
 }
 .register-template p {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
 }
 .register-template p b {
   color: #ac2626;
 }
+.register-template .form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2rem 0;
+}
+.register-template .form input {
+  margin: 1rem 0;
+  padding: 1rem 1rem;
+  border: 2px solid transparent;
+  backface-visibility: hidden;
+  font-size: 2rem;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.3s;
+}
+.register-template .form input:hover, .register-template .form input:focus {
+  outline: none;
+  border: 1px solid #ac2626;
+  box-shadow: 0 0 4px rgba(85, 85, 85, 0.5);
+}
+.register-template .form input:last-of-type {
+  margin-bottom: 5rem;
+}
+.register-template .form button {
+  align-self: center;
+  font-size: 2.2rem;
+  margin: 2rem 0;
+}
+.register-template .form .register__skip-btn {
+  align-self: center;
+  margin: 2rem 0;
+  transition: all 0.3s;
+}
+.register-template .form .register__skip-btn:hover, .register-template .form .register__skip-btn:active {
+  color: #000;
+}
+.register-template .form .photo-circle {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(172, 38, 38, 0.5);
+  align-self: center;
+  margin: 2rem 0 5rem 0;
+}
+.register-template .form .photo-circle div {
+  font-size: 7rem;
+  font-family: "Lato Light";
+  font-weight: 200;
+}
 
+@media screen and (min-width: 428px) {
+  .register-template {
+    padding: 5rem 5rem;
+  }
+  .register-template h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    padding: 2rem 0;
+  }
+  .register-template p {
+    font-size: 2.5rem;
+  }
+  .register-template .form {
+    width: 100%;
+    padding: 4rem 0;
+  }
+  .register-template .form input {
+    margin: 1rem 0;
+    padding: 1.4rem 1.4rem;
+    font-size: 2rem;
+  }
+  .register-template .form input:last-of-type {
+    margin-bottom: 5rem;
+  }
+  .register-template .form button {
+    font-size: 2.4rem;
+    margin: 2rem 0;
+  }
+  .register-template .form .register__skip-btn {
+    margin: 3rem 0;
+  }
+  .register-template .form .photo-circle {
+    width: 15rem;
+    height: 15rem;
+    margin: 2rem 0 5rem 0;
+  }
+  .register-template .form .photo-circle div {
+    font-size: 8rem;
+  }
+}
+@media screen and (min-width: 628px) {
+  .register-template {
+    padding: 8rem 7rem;
+  }
+  .register-template h1 {
+    font-size: 3.6rem;
+    font-weight: 700;
+    padding: 3rem 0;
+  }
+  .register-template p {
+    font-size: 2.8rem;
+  }
+  .register-template .form {
+    width: 75%;
+    padding: 8rem 0;
+    align-self: center;
+  }
+  .register-template .form input {
+    margin: 1rem 0;
+    padding: 1.5rem 1.5rem;
+    font-family: inherit;
+    font-size: 2rem;
+  }
+  .register-template .form input:last-of-type {
+    margin-bottom: 5rem;
+  }
+  .register-template .form button {
+    font-size: 2.4rem;
+    margin: 2rem 0;
+  }
+  .register-template .form .register__skip-btn {
+    margin: 3rem 0;
+  }
+  .register-template .form .photo-circle {
+    width: 15rem;
+    height: 15rem;
+    margin: 2rem 0 5rem 0;
+  }
+  .register-template .form .photo-circle div {
+    font-size: 8rem;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .register-template {
+    padding: 10rem 10rem;
+  }
+  .register-template h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    padding: 5rem 0;
+  }
+  .register-template p {
+    font-size: 3rem;
+  }
+  .register-template .form {
+    width: 70%;
+    padding: 10rem 0;
+    align-self: center;
+  }
+  .register-template .form input {
+    margin: 2rem 0;
+    padding: 2rem 2rem;
+    font-family: inherit;
+    font-size: 2.5rem;
+  }
+  .register-template .form input:last-of-type {
+    margin-bottom: 7rem;
+  }
+  .register-template .form button {
+    font-size: 3rem;
+    margin: 3rem 0;
+  }
+  .register-template .form .register__skip-btn {
+    margin: 3rem 0;
+  }
+  .register-template .form .photo-circle {
+    width: 15rem;
+    height: 15rem;
+    margin: 2rem 0 5rem 0;
+  }
+  .register-template .form .photo-circle div {
+    font-size: 8rem;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .register-template {
+    padding: 12rem 12rem;
+  }
+  .register-template h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    padding: 5rem 0;
+  }
+  .register-template p {
+    font-size: 3.2rem;
+  }
+  .register-template .form {
+    width: 70%;
+    padding: 10rem 0;
+    align-self: center;
+  }
+  .register-template .form input {
+    margin: 2rem 0;
+    padding: 2rem 2rem;
+    font-family: inherit;
+    font-size: 2.5rem;
+  }
+  .register-template .form input:last-of-type {
+    margin-bottom: 7rem;
+  }
+  .register-template .form button {
+    font-size: 3.2rem;
+    margin: 3rem 0;
+  }
+  .register-template .form .register__skip-btn {
+    margin: 3rem 0;
+  }
+  .register-template .form .photo-circle {
+    width: 20rem;
+    height: 20rem;
+    margin: 2rem 0 5rem 0;
+  }
+  .register-template .form .photo-circle div {
+    font-size: 10rem;
+  }
+}
 .login-page {
   width: 100%;
   height: 100vh;
@@ -416,15 +639,15 @@
 }
 .login-page input {
   font-size: 2.2rem;
-  border: 2px solid transparent;
-  border-radius: 6px;
-  padding: 0.6rem 0.7rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 0.9rem 0.7rem;
   margin: 0.3rem 0 0.5rem 0;
   transition: all 0.3s;
 }
 .login-page input:hover, .login-page input:focus {
   outline: none;
-  border: 2px solid #ac2626;
+  border: 1px solid #ac2626;
   box-shadow: 0 0 4px rgba(85, 85, 85, 0.5);
 }
 .login-page button {
