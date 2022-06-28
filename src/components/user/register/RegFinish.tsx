@@ -8,7 +8,10 @@ const RegFinish = (): JSX.Element => {
   const submitHandler = async (
     event: React.SyntheticEvent<HTMLFormElement>
   ) => {
-    navigate("/register", { replace: true });
+    //send post request with stored data
+
+    //log in and redirect
+
     event.preventDefault();
   };
 
