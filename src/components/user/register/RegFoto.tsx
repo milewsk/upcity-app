@@ -10,13 +10,11 @@ const RegFoto = (): JSX.Element => {
     event: React.SyntheticEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
-   
-    if(imageUpload !== null){
 
+    if (imageUpload !== null) {
       //add Image to store
     }
     navigate("date", { replace: true });
-    
   };
 
   const insideCircle = <div>+</div>;
@@ -26,17 +24,15 @@ const RegFoto = (): JSX.Element => {
       <h1>Dodaj zdjęcie</h1>
       <p>Dodaj swoje zdjęcie, aby twoi znajomi z łatwością cię rozpoznali 😊</p>
       <form className="form" onSubmit={submitHandler}>
-        <input
+        <div className="photo-circle">{insideCircle}</div>
+        {/* <input
           type="file"
+          placeholder="none"
           onChange={(event) => {
-            console.log(event.target.files)
             setImageUpload(event.target.files ? event.target.files[0] : null);
-            
           }}
           className="photo-circle"
-        >
-          {insideCircle}
-        </input>
+        ></input> */}
         <button type="submit" className="btn btn--medium btn-filled">
           Dalej
         </button>

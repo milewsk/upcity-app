@@ -4,10 +4,18 @@ import IResponse from "../interfaces/IResponse";
 
 const UserService = {
   LoginUser: async (email: string, passowrd: string) => {
-    const response = await fetch(
-      `https://localhost:44360/api/user/${email}/${passowrd}`,
-      { method: "GET", headers: { "Access-Control-Allow-Origin": "*" } }
-    );
+    const response = await fetch(`https://localhost:44360/api/User/login`, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        Email: email,
+        Password: passowrd,
+      }),
+    });
 
     if (response.ok) {
       const data: IResponse = await response.json();
@@ -20,9 +28,11 @@ const UserService = {
   },
 
   RegisterUser: async (email: string, passowrd: string) => {
-    const response = await fetch(`https://localhost:44360/api/user/`, {
+    const response = await fetch(`https://localhost:44360/api/User/register`, {
       method: "POST",
+      credentials: "include",
       headers: {
+        "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -41,7 +51,7 @@ const UserService = {
   },
 
   retriveStoredToken: () => {
-    const storedToken: string | null = localStorage.getItem("email");
+    const storedToken: string | null = localStorage.getItem("token");
     const storedExpirationTime: string | null =
       localStorage.getItem("expirationTime");
 
@@ -50,13 +60,13 @@ const UserService = {
     );
 
     if (remainingTime <= 60000) {
-      localStorage.removeItem("email");
+      localStorage.removeItem("token");
       localStorage.removeItem("expirationTime");
 
       return null;
     }
 
-    return { email: storedToken, duration: remainingTime };
+    return { storedToken: storedToken, duration: remainingTime };
   },
 };
 

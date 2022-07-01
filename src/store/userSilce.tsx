@@ -1,22 +1,22 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { useCallback, useEffect } from "react";
+import Cookies from "universal-cookie";
 
 interface IUserState {
   isLoggedIn: boolean;
-  email: string | null;
   token: string | null;
   sessionRemainingTime: number | null;
 }
 
 interface ILoginCrudencials {
-  email: string;
   expirationTime: number;
 }
 
+const cookies = new Cookies();
+
 const initialState: IUserState = {
-  email: localStorage.getItem("email"),
-  isLoggedIn: localStorage.getItem("email") ? true : false,
-  token: null,
+  isLoggedIn: cookies.get("jwt") ? true : false,
+  token: cookies.get("jwt"),
   sessionRemainingTime: Number(localStorage.getItem("expirationTime")),
 };
 
@@ -31,27 +31,21 @@ export const UserSlice = createSlice({
       action: PayloadAction<ILoginCrudencials>
     ) => {
       state.isLoggedIn = true;
-      state.email = action.payload.email;
       state.sessionRemainingTime = calculateRemainingTime(
         action.payload.expirationTime
       );
 
-      addCrudentialsToStorage(
-        state.email,
-        state.sessionRemainingTime.toString()
-      );
+      addCrudentialsToStorage(state.sessionRemainingTime.toString());
 
-      console.log(localStorage.getItem("email"));
       logoutTimer = setTimeout(userLogout, state.sessionRemainingTime);
     },
 
     userLogout: (state: IUserState) => {
       state.isLoggedIn = false;
-      state.email = "";
+
       state.token = null;
       state.sessionRemainingTime = 0;
 
-      window.localStorage.removeItem("email");
       window.localStorage.removeItem("expirationTime");
 
       if (logoutTimer) {
@@ -59,7 +53,7 @@ export const UserSlice = createSlice({
       }
     },
     retriveStoredToken: (state: IUserState) => {
-      const storedToken: string | null = window.localStorage.getItem("email");
+      const storedToken: string | null = cookies.get("jwt");
       const storedExpirationTime: string | null =
         window.localStorage.getItem("expirationTime");
 
@@ -68,7 +62,6 @@ export const UserSlice = createSlice({
       );
 
       if (remainingTime <= 30000) {
-        window.localStorage.removeItem("email");
         window.localStorage.removeItem("expirationTime");
 
         UserSlice.caseReducers.userLogout(state);
@@ -79,7 +72,6 @@ export const UserSlice = createSlice({
       if (storedToken !== null) {
         console.log("triggered");
         const payload: ILoginCrudencials = {
-          email: storedToken,
           expirationTime: remainingTime,
         };
         UserSlice.caseReducers.userLogin(state, { payload, type: "login" });
@@ -88,8 +80,7 @@ export const UserSlice = createSlice({
   },
 });
 
-const addCrudentialsToStorage = (email: string, expirationTime: string) => {
-  window.localStorage.setItem("email", email);
+const addCrudentialsToStorage = (expirationTime: string) => {
   window.localStorage.setItem("expirationTime", expirationTime);
 };
 

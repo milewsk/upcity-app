@@ -1,6 +1,9 @@
 import React, { Fragment, useEffect } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import IResponse from "../../interfaces/IResponse";
+import UserService from "../../services/UserService";
 import { useAppDispatch, useAppSelector } from "../../store/storeHooks";
+import { userLogin } from "../../store/userSilce";
 
 const Register = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -9,7 +12,6 @@ const Register = (): JSX.Element => {
   const submitHandler = async (
     event: React.SyntheticEvent<HTMLFormElement>
   ) => {
-    navigate("name", { replace: true });
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -27,23 +29,18 @@ const Register = (): JSX.Element => {
     // );
 
     // if (responseJSON.Status === 200) {
-    //   const expirationTime = new Date().getTime() + 100000;
-
-    //   dispatch(
-    //     userLogin({
-    //       email: responseJSON.ReturnData,
-    //       expirationTime: expirationTime,
-    //     })
-    //   );
+    //   navigate("name", { replace: true });
     // }
+
+    navigate("name", { replace: true });
   };
 
   return (
     <div className="register-page">
       <div className="register-page__intro">
-        <div className="register-page__logo-box">Balance</div>
+        <div className="register-page__logo-box">Upcity</div>
         <div className="register-page__slogan">
-          Balance - kontroluj swoją firmę
+          Upcity - Znajdź swoje miejsce w mieście
         </div>
       </div>
       <form onSubmit={submitHandler} className="register-page__form">

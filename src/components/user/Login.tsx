@@ -1,6 +1,9 @@
 import React, { Fragment, useEffect, useRef } from "react";
 import { Link, Outlet } from "react-router-dom";
+import IResponse from "../../interfaces/IResponse";
+import UserService from "../../services/UserService";
 import { useAppDispatch, useAppSelector } from "../../store/storeHooks";
+import { userLogin } from "../../store/userSilce";
 
 const Login = (): JSX.Element => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -25,10 +28,8 @@ const Login = (): JSX.Element => {
 
     // if (responseJSON.Status === 200) {
     //   const expirationTime = new Date().getTime() + 100000;
-
     //   dispatch(
     //     userLogin({
-    //       email: responseJSON.ReturnData,
     //       expirationTime: expirationTime,
     //     })
     //   );
@@ -38,9 +39,9 @@ const Login = (): JSX.Element => {
   return (
     <div className="login-page">
       <div className="login-page__intro">
-        <div className="login-page__logo-box">Balance</div>
+        <div className="login-page__logo-box">Upcity</div>
         <div className="login-page__slogan">
-          Balance - kontroluj swoją firmę
+          Upcity - Znajdź swoje miejsce w mieście
         </div>
       </div>
       <form className="login-page__form" ref={formRef} onSubmit={submitHandler}>
