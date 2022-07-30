@@ -2,27 +2,25 @@ import React, { Fragment, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../store/storeHooks";
 
-const RegDate = (): JSX.Element => {
+const RegisterName = (): JSX.Element => {
   const navigate = useNavigate();
 
   const submitHandler = async (
     event: React.SyntheticEvent<HTMLFormElement>
   ) => {
-    navigate("finish", { replace: true });
+    navigate("photo", { replace: true });
     event.preventDefault();
   };
 
   return (
     <div className="register-template">
-      <h1>Data urodzenia</h1>
+      <h1>Imię i nazwisko</h1>
       <p>
-        Podaj swoją datę urodzenia.
-        <b> UWAGA!</b> Podaj swoją prawdziwą datę, aby ewentualne zgadzała się z
-        twoim dowodem tożsamości.
+        Wpisz swoje prawdziwe imię i nazwisko.<b> To ważne.</b>
       </p>
       <form className="form" onSubmit={submitHandler}>
-        <input placeholder="Imię" type="date"></input>
-
+        <input placeholder="Imię" type="text"></input>
+        <input placeholder="Nazwisko" type="text"></input>
         <button type="submit" className="btn btn--medium btn-filled">
           Dalej
         </button>
@@ -31,4 +29,4 @@ const RegDate = (): JSX.Element => {
   );
 };
 
-export default RegDate;
+export default RegisterName;

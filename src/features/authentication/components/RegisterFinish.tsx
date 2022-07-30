@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../store/storeHooks";
 
-const RegFinish = (): JSX.Element => {
+const RegisterFinish = (): JSX.Element => {
   const navigate = useNavigate();
 
   const submitHandler = async (
@@ -22,8 +22,8 @@ const RegFinish = (): JSX.Element => {
         Na twojego maila wysłaliśmy wiadomość z kodem potwierdzającym twoją
         rejestrację. Twoje konto jest już aktywne!
       </p>
-      <form className="form" onSubmit={submitHandler}>
-        <button type="submit" className="btn btn--medium btn-filled">
+      <form className="form">
+        <button  className="btn btn--medium btn-filled">
           Zaczynajmy
         </button>
       </form>
@@ -31,4 +31,4 @@ const RegFinish = (): JSX.Element => {
   );
 };
 
-export default RegFinish;
+export default RegisterFinish;

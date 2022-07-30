@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../store/storeHooks";
 
-const RegFoto = (): JSX.Element => {
+const RegisterPhoto = (): JSX.Element => {
   const [imageUpload, setImageUpload] = useState<File | null>(null);
   const navigate = useNavigate();
 
@@ -42,4 +42,4 @@ const RegFoto = (): JSX.Element => {
   );
 };
 
-export default RegFoto;
+export default RegisterPhoto;

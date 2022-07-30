@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import { JsonObjectExpression } from "typescript";
-import IResponse from "../interfaces/IResponse";
+import IResponse from "../../../shared/interfaces/IResponse";
 
 const UserService = {
   LoginUser: async (email: string, passowrd: string) => {

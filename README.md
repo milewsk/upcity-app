@@ -1,6 +1,39 @@
-# Getting Started with Create React App
+# Read me
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project structure
+
+### `shared`
+
+Files shared across whole file structure
+
+- Interfaces
+- Services
+- Helpers
+
+### `pages`
+
+TSX files represent single page in application.
+Entry points to get invoked when we change our route - Route endpoints.
+
+### `sass`
+
+Sass file structure, split between folders.
+Index is a file which import other files to create one big css file.
+
+### `css`
+
+Big css style file with mapper.
+
+### `lib`
+
+Folder for third party libraries.
+Facade pattern implementation to easly move between vesrions and configure libs for our purpose.
+
+### `hooks`
+
+Folder for storing global hooks.
+
+### ``
 
 ## Available Scripts
 

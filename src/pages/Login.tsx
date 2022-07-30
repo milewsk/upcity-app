@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect, useRef } from "react";
 import { Link, Outlet } from "react-router-dom";
-import IResponse from "../../interfaces/IResponse";
-import UserService from "../../services/UserService";
-import { useAppDispatch, useAppSelector } from "../../store/storeHooks";
-import { userLogin } from "../../store/userSilce";
+import IResponse from "../shared/interfaces/IResponse";
+import UserService from "../features/authentication/services/UserService";
+import { useAppDispatch, useAppSelector } from "../store/storeHooks";
+import { userLogin } from "../store/userSilce";
 
 const Login = (): JSX.Element => {
   const formRef = useRef<HTMLFormElement>(null);
