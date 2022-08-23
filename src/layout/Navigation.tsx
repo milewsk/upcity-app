@@ -29,7 +29,7 @@ const Navigation = (): JSX.Element => {
   }, [dispatch]);
 
   return (
-    <nav>
+    <Fragment>
       {typeOfNavigation === "desktop" && (
         <DesktopNavigation></DesktopNavigation>
       )}
@@ -39,7 +39,7 @@ const Navigation = (): JSX.Element => {
           <MobileSideNavigation></MobileSideNavigation>
         </Fragment>
       )}
-    </nav>
+    </Fragment>
   );
 };
 
