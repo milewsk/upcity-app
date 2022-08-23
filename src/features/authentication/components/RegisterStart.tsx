@@ -10,11 +10,6 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import useInput from "../../../hooks/useInput";
 import API from "../../../lib/API";
-import {
-  email_REGEX,
-  passowrd_REGEX,
-  username_REGEX,
-} from "../../../shared/helper/Regex";
 import { useAppDispatch } from "../../../store/storeHooks";
 
 interface IProps {
@@ -57,22 +52,16 @@ const RegisterStart = ({ setStep }: IProps) => {
   ) => {
     event.preventDefault();
 
-    const form = event.currentTarget;
-    const formElements = form.elements as typeof form.elements & {
-      email: { value: string };
-      passoword: { value: string };
-    };
-
-    const emailValue: string = formElements.email.value;
-    const passwordValue: string = formElements.email.value;
-
+    console.log(isEmailValid);
+    console.log(isPassowrdValid);
+    let response;
     if (isEmailValid && isPassowrdValid) {
-      //wyślij sprawdzenie czy mail jest w bazie
-      const response = API.get(`api/user/checkEmail/${emailValue}`);
-      console.log(response);
-      //jeśli jest - error
-      // jeśli nie zapisz zmiany do boxa i przejdź kolejny krok
+      response = await API.get(`api/User/checkEmail/${emailValue}`);
+
+      if (response.status === 200) {
+      }
     }
+    console.log(response);
   };
 
   return (
@@ -91,6 +80,13 @@ const RegisterStart = ({ setStep }: IProps) => {
           type="text"
           id="email"
           autoComplete="off"
+          onChange={(e) => setEmailValue(e.target.value)}
+          onBlur={() => {
+            emailBlurrHandler();
+          }}
+          required
+          aria-invalid={isEmailValid ? "false" : "true"}
+          aria-describedby="pswidnote"
         ></input>
         <label htmlFor="passowrd">Hasło</label>
         <input
@@ -98,7 +94,7 @@ const RegisterStart = ({ setStep }: IProps) => {
           type="passowrd"
           placeholder="Wpisz swoje hasło"
           ref={passwordRef}
-          onChange={(e) => setUsernameValue(e.target.value)}
+          onChange={(e) => setPassowrdValue(e.target.value)}
           required
           aria-invalid={isPassowrdValid ? "false" : "true"}
           aria-describedby="pswidnote"
@@ -110,7 +106,7 @@ const RegisterStart = ({ setStep }: IProps) => {
           Masz już konto? <Link to="/login">Zaloguj się</Link>
         </p>
         <button
-          disabled={isPassowrdValid && isUsernameValid}
+          disabled={!isPassowrdValid && !isEmailValid}
           className="btn btn--medium btn-filled"
           type="submit"
         >

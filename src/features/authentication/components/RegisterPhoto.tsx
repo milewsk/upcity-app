@@ -1,8 +1,18 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, {
+  Dispatch,
+  Fragment,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../store/storeHooks";
 
-const RegisterPhoto = (): JSX.Element => {
+interface IProps {
+  setStep: Dispatch<SetStateAction<number>>;
+}
+
+const RegisterPhoto = ({ setStep }: IProps): JSX.Element => {
   const [imageUpload, setImageUpload] = useState<File | null>(null);
   const navigate = useNavigate();
 

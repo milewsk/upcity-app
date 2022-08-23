@@ -1,16 +1,14 @@
 import axios, { AxiosResponse } from "axios";
 
-const baseURL: string = "";
+const baseURL: string = "https://localhost:44360/";
 
 //Currently using: axios
-const client = axios.create({ baseURL: baseURL });
+const client = axios.create({ baseURL: baseURL, headers: {} });
 
 const API = {
   get: async (URL: string) => {
-    return await client
-      .get(URL)
-      .then((response) => {})
-      .catch((error) => {});
+    console.log("send data");
+    return await client.get(URL);
   },
 
   post: async (URL: string, data: Object) => {

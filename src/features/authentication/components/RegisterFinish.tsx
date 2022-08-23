@@ -1,8 +1,12 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Dispatch, Fragment, SetStateAction, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../store/storeHooks";
 
-const RegisterFinish = (): JSX.Element => {
+interface IProps {
+  setStep: Dispatch<SetStateAction<number>>;
+}
+
+const RegisterFinish = ({ setStep }: IProps): JSX.Element => {
   const navigate = useNavigate();
 
   const submitHandler = async (
@@ -23,9 +27,7 @@ const RegisterFinish = (): JSX.Element => {
         rejestrację. Twoje konto jest już aktywne!
       </p>
       <form className="form">
-        <button  className="btn btn--medium btn-filled">
-          Zaczynajmy
-        </button>
+        <button className="btn btn--medium btn-filled">Zaczynajmy</button>
       </form>
     </div>
   );
