@@ -1,8 +1,11 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Dispatch, Fragment, SetStateAction, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../store/storeHooks";
 
-const RegisterDate = (): JSX.Element => {
+interface IProps {
+  setStep: Dispatch<SetStateAction<number>>;
+}
+const RegisterDate = ({ setStep }: IProps): JSX.Element => {
   const navigate = useNavigate();
 
   const submitHandler = async (

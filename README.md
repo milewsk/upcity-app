@@ -27,7 +27,7 @@ Big css style file with mapper.
 ### `lib`
 
 Folder for third party libraries.
-Facade pattern implementation to easly move between vesrions and configure libs for our purpose.
+Facade pattern implementation to easly move between versions and configure libs for our purpose.
 
 ### `hooks`
 

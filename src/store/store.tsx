@@ -1,9 +1,13 @@
 import { configureStore, applyMiddleware } from "@reduxjs/toolkit";
 import UserSlice from "./userSilce";
+import authSlice from "./authSlice";
+import navigationSlice from "./navigationSlice";
 
 export const store = configureStore({
   reducer: {
     userReducer: UserSlice,
+    authSlice: authSlice,
+    navigationSlice: navigationSlice,
   },
 });
 

@@ -11,22 +11,15 @@ const useInput = (inputType: string) => {
     setIsInputTouched(true);
   };
 
-  let regex: RegExp;
-  const defineRegexType = () => {
-    if (inputType === "email") {
-      regex = email_REGEX;
-    }
-    if (inputType == "passowrd") {
-      regex = passowrd_REGEX;
-    }
-  };
-  defineRegexType();
+  //let regex: RegExp = inputType === "email" ? email_REGEX : passowrd_REGEX;
+  let regex: RegExp = /^[a-zA-Z][a-zA-Z0-9-_]/;
+  if (inputType === "email") {
+    regex = email_REGEX;
+  } else if (inputType === "password") {
+    regex = passowrd_REGEX;
+  }
 
-  const validator = (value: string) => {
-    return regex.test(value);
-  };
-
-  const isValueValid = validator(value);
+  const isValueValid: boolean = regex.test(value);
   const hasError = isValueValid && isInputTouched;
 
   return {
