@@ -17,6 +17,8 @@ const ModalSmall = ({ title, message, type }: IModalSmallProps) => {
     setTimeout(() => {}, 3000);
   }, []);
 
+  const closeModalHandler = () => {};
+
   return (
     <div className="popup-small__container">
       {type === ModalType.Possitive ? (
@@ -25,7 +27,7 @@ const ModalSmall = ({ title, message, type }: IModalSmallProps) => {
         <FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon>
       )}
       <p>{message}</p>
-      <button onClick={}>
+      <button onClick={closeModalHandler}>
         <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
       </button>
     </div>

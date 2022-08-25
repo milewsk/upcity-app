@@ -4,17 +4,17 @@ import {
   faCircleExclamation,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import { PopupType } from "../../shared/Enums";
-interface IPopupSmallProps {
+import { ModalType } from "../../shared/Enums";
+interface IModalProps {
   title: string;
   message: string;
-  type: PopupType;
+  type: ModalType;
 }
 
-const Modal = ({ title, message, type }: IPopupSmallProps) => {
+const Modal = ({ title, message, type }: IModalProps) => {
   return (
     <div className="modal__container">
-      {type === PopupType.Possitive ? (
+      {type === ModalType.Possitive ? (
         <FontAwesomeIcon icon={faCircleCheck}></FontAwesomeIcon>
       ) : (
         <FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon>

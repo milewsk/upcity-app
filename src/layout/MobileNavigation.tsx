@@ -19,7 +19,7 @@ const MobileNavigation = (): JSX.Element => {
       : dispatch(openMobileLinks());
   };
   return (
-    <nav className={changeNavBackground}>
+    <nav className={changeNavigationBackground}>
       <Link className="navigation__logo" to="/home">
         Balance
       </Link>
