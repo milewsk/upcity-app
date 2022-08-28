@@ -10,9 +10,18 @@ import RegFoto from "./features/authentication/components/RegisterPhoto";
 import RegName from "./features/authentication/components/RegisterName";
 import Page from "./Page";
 import RequireAuth from "./features/authentication/RequireAuth";
+import { ModalService } from "./shared/services/ModalService";
+import { ModalType } from "./shared/Enums";
 
 function App() {
   const isUserLogged = false;
+
+  ModalService.createModal({
+    title: "",
+    message: "",
+    type: ModalType.Confirm,
+    confirmFunction: () => {},
+  });
 
   return (
     <Routes>

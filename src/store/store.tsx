@@ -9,7 +9,7 @@ export const store = configureStore({
     userReducer: UserSlice,
     authSlice: authSlice,
     navigationSlice: navigationSlice,
-    modalSlice: modalSlice,
+
   },
 });
 
