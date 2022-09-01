@@ -7,9 +7,13 @@ import {
   useRef,
   useState,
 } from "react";
+import ReactDOM from "react-dom";
 import { Link, useNavigate } from "react-router-dom";
+import Modal from "../../../components/modal/Modal";
 import useInput from "../../../hooks/useInput";
 import API from "../../../lib/API";
+import { ModalType } from "../../../shared/Enums";
+import { ModalService } from "../../../shared/services/ModalService";
 import { useAppDispatch } from "../../../store/storeHooks";
 
 interface IProps {
@@ -46,6 +50,18 @@ const RegisterStart = ({ setStep }: IProps) => {
   }, []);
 
   useEffect(() => {}, [emailValue, passowrdValue]);
+
+  const ff = (): void => {
+    console.log("envoke");
+  };
+
+  // return ModalService.createModal({
+  //   title: "witam oto tyluł tgfdgfdgdfgdfg dfg dfg fdg retg ",
+  //   message: "wiadomość ładna fajna taka o gfdg tre hh gtsreg rdtg ertg reg ",
+  //   type: ModalType.Confirm,
+  //   isFunctionDefined: true,
+  //   confirmFunction: ff,
+  // });
 
   const submitHandler = async (
     event: React.SyntheticEvent<HTMLFormElement>

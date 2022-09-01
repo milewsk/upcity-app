@@ -1,0 +1,70 @@
+@use "../../base/colors";
+@use "../../base/fonts";
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+
+  width: 70vw;
+  height: 50vh;
+  padding: 3rem 3rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: colors.$background-color;
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 40%;
+
+    svg {
+      width: 80%;
+      height: 80%;
+      color: colors.$color-primary--70;
+    }
+  }
+
+  &__title {
+    height: 30%;
+
+    font-size: 2rem;
+    font-family: inherit;
+    text-align: center;
+    color: colors.$color-primary--70;
+  }
+
+  &__message {
+    height: 30%;
+
+    font-size: 1.6rem;
+    font-family: inherit;
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 20%;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 767px) {
+    &__title {
+      font-size: 2.4rem;
+    }
+
+    &__message {
+      font-size: 2rem;
+    }
+  }
+}

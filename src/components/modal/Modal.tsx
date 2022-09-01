@@ -11,38 +11,57 @@ interface IModalProps {
   title: string;
   message: string;
   type: ModalType;
-  confirmFunction: Function;
+  isFunctionDefined: boolean;
+  confirmFunction: () => any;
 }
 
-//ewenualnie pomyśleć jak zrobić to lepiej
+//basicly we will use modal only for confirming or
 
-const Modal = ({ title, message, type, confirmFunction }: IModalProps) => {
+const Modal = ({
+  title,
+  message,
+  type,
+  isFunctionDefined,
+  confirmFunction,
+}: IModalProps) => {
+  const onConfirmHandler = () => {
+    confirmFunction();
+  };
+
   return (
-    <div className="modal__container">
-      {type === ModalType.Possitive ? (
-        <FontAwesomeIcon icon={faCircleCheck}></FontAwesomeIcon>
-      ) : (
-        <FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon>
-      )}
-      <p className="modal__title">{title}</p>
-      <p className="modal__message">{message}</p>
-      <div className="modal__button-container">
-        <button
-          className="btn modal__btn--cancel"
-          onClick={ModalService.closeModal}
-        >
-          <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
-        </button>
-        {confirmFunction && (
+    <>
+      <div className="modal">
+        <div className="modal__icon">
+          {type === ModalType.Possitive ? (
+            <FontAwesomeIcon icon={faCircleCheck}></FontAwesomeIcon>
+          ) : (
+            <FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon>
+          )}
+        </div>
+        <p className="modal__title">{title}</p>
+        <p className="modal__message">{message}</p>
+        <div className="modal__button-container">
           <button
-            className="btn modal__btn--cancel"
-            onClick={confirmFunction()}
+            className="btn btn--modal btn--dismiss"
+            onClick={ModalService.closeModal}
           >
-            <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+            <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
           </button>
-        )}
+          {isFunctionDefined && (
+            <button
+              className="btn  btn--modal btn--confirm"
+              onClick={onConfirmHandler}
+            >
+              <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+            </button>
+          )}
+        </div>
       </div>
-    </div>
+      <div
+        className="modal__background"
+        onClick={ModalService.closeModal}
+      ></div>
+    </>
   );
 };
 

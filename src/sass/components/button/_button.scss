@@ -44,8 +44,32 @@
     }
   }
 
+  &--confirm {
+    background-color: rgba(colors.$color-accept, 9);
+
+    &:hover {
+      background-color: rgba(colors.$color-accept-dark, 1);
+    }
+  }
+
+  &--dismiss {
+    background-color: rgba(colors.$color-error, 9);
+
+    &:hover {
+      background-color: rgba(colors.$color-error-dark, 1);
+    }
+  }
+
   &--small {
     width: 15rem;
+    padding: 0.6rem 0rem;
+
+    border-radius: 10px;
+    font-weight: 700;
+  }
+
+  &--modal {
+    width: 40%;
     padding: 0.6rem 0rem;
 
     border-radius: 10px;
@@ -85,7 +109,8 @@
   }
 
   @media screen and (min-width: 768px) {
-    &--small {
+    &--small,
+    &--modal {
       width: 20rem;
       padding: 1.2rem 0;
       font-size: 1.7rem;

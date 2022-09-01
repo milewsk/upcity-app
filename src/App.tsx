@@ -16,13 +16,6 @@ import { ModalType } from "./shared/Enums";
 function App() {
   const isUserLogged = false;
 
-  ModalService.createModal({
-    title: "",
-    message: "",
-    type: ModalType.Confirm,
-    confirmFunction: () => {},
-  });
-
   return (
     <Routes>
       <Route path="/" element={<Page></Page>}>

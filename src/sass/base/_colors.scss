@@ -6,6 +6,15 @@ $color-primary-light: #e74545;
 
 $gradient-primary: linear-gradient($color-primary-light, $color-primary-dark);
 
+//CRUD Colors
+$color-accept: rgb(31, 139, 55);
+$color-accept-dark: rgb(30, 128, 51);
+
+$color-error: rgb(179, 31, 31);
+$color-error-dark: rgb(167, 29, 29);
+
+$color-warning: rgb(194, 100, 37);
+
 // backgrund colors
 //$background-color: rgba(255, 249, 249, 0.907);
 $background-color: #f0eeee;

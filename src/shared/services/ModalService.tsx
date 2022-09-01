@@ -7,18 +7,26 @@ interface ModalProps {
   title: string;
   message: string;
   type: ModalType;
-  confirmFunction?: Function;
+  isFunctionDefined: boolean;
+  confirmFunction: () => any;
 }
 
 const divPortal = document.getElementById("portal") as HTMLElement;
 
 export const ModalService = {
-  createModal: ({ title, message, type, confirmFunction }: ModalProps) => {
-    ReactDOM.createPortal(
+  createModal: ({
+    title,
+    message,
+    type,
+    isFunctionDefined,
+    confirmFunction,
+  }: ModalProps) => {
+    return ReactDOM.createPortal(
       <Modal
         title={title}
         message={message}
         type={type}
+        isFunctionDefined={isFunctionDefined}
         confirmFunction={confirmFunction ? confirmFunction() : () => {}}
       ></Modal>,
       divPortal

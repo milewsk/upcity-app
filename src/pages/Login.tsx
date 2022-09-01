@@ -24,7 +24,7 @@ const Login = (): JSX.Element => {
     const email: string = formElements.emailInput.value;
     const password: string = formElements.passwordInput.value;
 
-    // let responseJSON: IResponse = await UserService.LoginUser(email, password);
+    let responseJSON: IResponse = await UserService.LoginUser(email, password);
 
     // if (responseJSON.Status === 200) {
     //   const expirationTime = new Date().getTime() + 100000;

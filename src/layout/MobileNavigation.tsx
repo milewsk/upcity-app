@@ -13,6 +13,10 @@ const MobileNavigation = (): JSX.Element => {
     "full-fill": isMobileNavigationOpen,
   });
 
+  const active: string = classNames("navigation__menu", {
+    "navigation__menu--open": isMobileNavigationOpen,
+  });
+
   const burgerMenuHandler = () => {
     isMobileNavigationOpen
       ? dispatch(closeMobileLinks)

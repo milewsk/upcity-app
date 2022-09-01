@@ -6,6 +6,9 @@
 //components
 @use "./components/button/button";
 @use "./components/button/checkbox";
+@use "./components/modal/modal";
+@use "./components/modal/modalBackground";
+
 @use "./components/account/register/register";
 @use "./components/account/register/registerTemp";
 @use "./components/account/login";
