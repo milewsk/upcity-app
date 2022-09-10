@@ -54,15 +54,6 @@ const RegisterStart = ({ setStep }: IProps) => {
   const ff = (): void => {
     console.log("envoke");
   };
-
-  // return ModalService.createModal({
-  //   title: "witam oto tyluł tgfdgfdgdfgdfg dfg dfg fdg retg ",
-  //   message: "wiadomość ładna fajna taka o gfdg tre hh gtsreg rdtg ertg reg ",
-  //   type: ModalType.Confirm,
-  //   isFunctionDefined: true,
-  //   confirmFunction: ff,
-  // });
-
   const submitHandler = async (
     event: React.SyntheticEvent<HTMLFormElement>
   ) => {

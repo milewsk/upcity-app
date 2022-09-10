@@ -8,10 +8,8 @@ interface ModalProps {
   message: string;
   type: ModalType;
   isFunctionDefined: boolean;
-  confirmFunction: () => any;
+  confirmFunction: (event: React.MouseEvent) => void;
 }
-
-const divPortal = document.getElementById("portal") as HTMLElement;
 
 export const ModalService = {
   createModal: ({
@@ -21,18 +19,11 @@ export const ModalService = {
     isFunctionDefined,
     confirmFunction,
   }: ModalProps) => {
-    return ReactDOM.createPortal(
-      <Modal
-        title={title}
-        message={message}
-        type={type}
-        isFunctionDefined={isFunctionDefined}
-        confirmFunction={confirmFunction ? confirmFunction() : () => {}}
-      ></Modal>,
-      divPortal
-    );
+    const divPortal = document.getElementById("modal-container") as HTMLElement;
+    divPortal.classList.remove("hidden");
   },
   createSmallModal: (props: ModalProps) => {
+    const divPortal = document.getElementById("modal-container") as HTMLElement;
     ReactDOM.createPortal(
       <ModalSmall
         title={props.title}
@@ -43,8 +34,6 @@ export const ModalService = {
     );
   },
   closeModal: () => {
-    setTimeout(() => {
-      divPortal.innerHTML = "";
-    }, 300);
+    const divPortal = document.getElementById("modal-container") as HTMLElement;
   },
 };

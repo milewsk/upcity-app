@@ -34,6 +34,11 @@
   font-family: "PlayFair bold";
   src: local("PlayFair"), url(../../assets/fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf) format("truetype");
 }
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
 .btn {
   text-align: center;
   color: white;
@@ -178,6 +183,16 @@
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+#modal-space {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  transition: all 0.2s ease-in;
 }
 
 .modal {
